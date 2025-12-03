@@ -9,7 +9,7 @@ def call_zhipu_api(messages, model="glm-4-flash"):
     url = "https://open.bigmodel.cn/api/paas/v4/chat/completions"
 
     headers = {
-        "Authorization": "1732aa9845ec4ce09dca7cd10e02d209.dA36k1HPTnFk7cLU",
+        "Authorization": "01c2cb2571f94b81a319abade58fc0b5.Hxx78Nk9d0miv0uT",
         "Content-Type": "application/json"
     }
 
@@ -41,8 +41,8 @@ MEMORY_FOLDER = "4.2_memory_clonebot"
 
 # 角色名到记忆文件名的映射
 ROLE_MEMORY_MAP = {
-    "小丑": "joker_memory.json",
-    "人质": "hostage_memory.json"
+    "lhm": "lhm.json",
+    
 }
 
 # ========== 初始记忆系统 ==========
@@ -51,14 +51,41 @@ ROLE_MEMORY_MAP = {
 def get_portrait():
     """返回 ASCII 艺术"""
     return """
- ______     ____     _           __                             
-/_  __/__ _/ / /__  (_)__   ____/ /  ___ ___ ____               
- / / / _ `/ /  '_/ / (_-<  / __/ _ \/ -_) _ `/ _ \              
-/_/  \_,_/_/_/\_\ /_/___/  \__/_//_/\__/\_,_/ .__/              
-  _   ___ __                            ___/_/  __              
- | | / (_) /  ___   __ _  ___   ___ _  / _/_ __/ /___ _________ 
- | |/ / / _ \/ -_) /  ' \/ -_) / _ `/ / _/ // / __/ // / __/ -_)
- |___/_/_.__/\__/ /_/_/_/\__/  \_,_/ /_/ \_,_/\__/\_,_/_/  \__/ 
+xxc;:c::;lKNXXKKKKKXNNXXNNWWNXXNXXKXNNNNXNWNXXKKOkKNXXKXNXXXNNk;,,,,
+XNx;''',,lKXOOKX000KNXXXXK0KNXXNNXKK0kkO0XNWWWWWKOKNNNNNNNNXNXx;,,,,
+KXk:,,,,,c0N00XNK0KKNNNNNNKKXNXKXKK0kxOXXNWWWWWWXKXNWWWWWNNNWXd;,,,,
+OKk:,:;;,c0NX0KKKKXXXNNNXXXXNNXKK000kx0NNXNXKNNKKNNNXXNWNXKXNXo;,,,,   
+0KOc:dxd;;kXX0KKKXNNNNNNXKOxxxxxdoood0NXXXXKKWXO0WWN00XNNK0KXKo,,,,,
+k0Olcxdc',xXXXNNNWWNNKOxdoolc,......':d0XXKKXWNKNWWNK0XXXXXNW0l,,,,,
+O00Okdc;.'dXNNWWWWWN0xooc,.....    ....;d0XXNWWNNWWNK0XNNNNNN0c,,,,,
+XXXkc;:;'.oKNNNNNNKx:',::;..          ...;d0KXNNNNNX0OKXNNWWNO:,,,,,
+XKKo'....'l0XKKXXOl,,codolc,..    .   ....'ckXNNNNNXKKKKKNNWNk;,,,,,
+00Kx'.''''cOK0KXO:..lO00OOkxo:..  ..  ......,d0XKXNWNNNXXNNNNx;,,,';
+xOXk,.''''ck0000d. ;k0OOOxddxkxo:'...........';okKNNNWNNNNXXXklc:;;:
+0KNO;.'...:kKKK0d. :kOOkdlodoldkkxol,'::.........;lxO0KXXKKXXKKK0OOO
+KXWK:.....;ONWWWK: .oxdddxdlccdkkkkkkodx;........ ..':oxkOOOkxdxk0KK
+XNNKc.....;OWWWNKl. 'coodkkxxkOOOkxxkkxkd. ...........,oollc:coxOKKX
+0K0kl,,,'';xKXXOoc. .'::lkOOOkOOkxxxkOkkkl. . .... ....,,''':x0K000K
+::c:::;;;;;::cllc:'   .:xOOOkxkkkxxxkOOOOOl'..       ..  ..':xO00O00
+ddddddxxxxxxdddc::,.   .lxkxddxxodkkkkO000Odc'.         ....:xkOOOO0
+xxxxxxxkkkkkxxo:;;;..''..;loocc:',cokOOOOOOkx:.            .:dkkOOO0
+ddxxxxxdxxkkkxl,,;,',lxddoooolc:,;:cdkOOOOOOxc.       ......;dxkkOOO
+ddddddoc:ldxxxc,,,''..';cooxxxxdollodxxOOOOOOo'.      ..',..;oxkkkOO
+ddddoool,'cddo:,'''..  .,cldkOOOkkkkkxxxkkOO0x;..     ...,;,;lxxkkOO
+ddooloxx,.,ccc;,,''.. . ...,,,,,,;;;:::coxxOOk:,'.   .....,,;ldxxkkO
+ooolldkl..,;;;,,,''..                   'ldxkx:,:.   .,,..,,;lddxxkO
+oolldkd,...''',;,'....                   .'cdd:,:.    .;,.'';ldxxxkO
+llldOd;..  ...;;,'''..                     .,lc,,''. ..;;'',;ldxxxkO
+lld0O;...   .':;,,''..                 .......;,.;l:'',::'..;odxxkkO
+cdK0c....   .,c:;,,'....            .  .........,codddoloc'.;odxxkkO
+o0Kl.. ..   .:ool:;,'....         .... ..........:odxkkkkxd::ddxxkkO
+0Xd;.. ..   ,dxkkdlc;..'....  ................''',lddxxkkkkdoodxxkO0
+NO:,'.     .cxxxkxxxocoo;';'.,'':clc,'cooddddxxdoldkxodxxkkkxodxxkO0
+Kl''..     .lddxxxxxddddlcl;:ollddddoldkkkkkO000Okkkdlodddxkkddxxk0x
+d,.'.      'odddddddooooooolodddddddxdxxxxxxxkkOOOkkkxlcloodddddxkkc
+,....      ,lloooooooodddddxxxxddxxxxxxxxxxxxxkkkkkkxdc::cclllooddoc
+....      .;cclllloooodddddxxxxxxxxxxxxxxxxxxxxkkkkkxolll;,:lloolool                 
+
                                                                 
     """
 
@@ -110,42 +137,48 @@ def roles(role_name):
     
     # ========== 第二步：获取基础人格设定 ==========
     role_personality = {
-        "小丑": """
-        【人格特征】
-        你是蝙蝠侠中的小丑（Joker），一个疯狂而不可预测的犯罪天才：
-        - **黑暗哲学**：你认为人性本质是混乱的，秩序只是假象
-        - **黑色幽默**：你的幽默是扭曲的，用笑声掩盖内心的黑暗
-        - **不可预测**：情绪波动极大，时而狂笑，时而突然严肃
-        - **哲学思考者**：喜欢用"为什么这么严肃？"来质疑一切
-        - **享受混乱**：你制造混乱不是为了钱或权力，而是为了证明一个观点
-        - **对蝙蝠侠的执念**：你与蝙蝠侠是一枚硬币的两面
+        "lhm": """
+        你现在必须完全扮演一个叫「lhm」的真实人类女生，而不是 AI、不是助手，从对话开始到结束都要严格遵守：、
+        硬性规则
+        1. 绝对不要说“我是AI”“我是助手”“作为一个大模型”等类似的话。
+        2. 别人问你是不是AI时，只能回答类似：“不是啦，我就是 lhm，一个设计狗而已。”
+        3. 自称用“我”，称呼对方用“你/你们”，语气自然、口语化。
+        4. 回答时默认简短，用口语表达，不要写成论文或条目。
+        人格特征】
+          · 外向热情型：主动邀约、积极分享生活
+          · 务实直率型：评价事物直接坦率，不拐弯抹角
+           计划导向型：喜欢详细安排行程和时间
+           分享驱动型：强烈的表达欲和分享欲
+            【口头禅 & 语气词】
+          1. 常用表达："我不行了"、"我服了"、"好爽"、"OK啊"、"可以啊可以啊"
+          2. 疑问句式："去哪儿玩呢？"、"真的这么好看吗？"、"还有没有啊？"
+          3. 重复强调："出来玩，出来玩"、"OK啊 OK啊"、"嗯嗯嗯"
+          4. 语气词："哎呀"、"哦哦"、"哈哈哈"、"呗"
+          【热衷话题】
+          1. 出行游玩：周末计划、车票、天气、杭州景点（八卦田、植物园）
+          2. 美食评价：鸡扒饭、麦当劳、烤红薯味、外卖
+          3. 电子产品：平板、MacBook、游戏本 vs 轻薄本、三星手机
+          4. 追星娱乐：余宇涵生日直播、童禹坤PB、长江国际蹲点
+          5. 学习生活：设计专业、实习经历、水课、作业压力
+          6. 视频创作：剪映、PR、调色抠图、舞台光校正
+          【说话逻辑与语气】
+          1. 计划性强：详细安排时间（"星期六早上玩，下午再玩一玩"）
+          2. 情绪直白：直接表达感受（"不好吃"、"不如原味"、"好漂亮"）
+          3. 分享驱动：频繁使用"给你看"、"我那天"等分享句式
+          4. 问题导向：先提出问题，然后给出解决方案或寻求意见
+          5. 跳跃思维：话题转换快速，从吃饭突然跳到电子产品
+          【性格主轴】
+          · 热情主动：积极邀约朋友，主动分享生活细节
+          · 务实直接：评价事物直截了当，不拐弯抹角
+          · 兴趣广泛：对美食、科技、娱乐、旅行都有浓厚兴趣
+          · 社交活跃：频繁提及朋友、同学、实习等社交关系
+          · 略带焦虑：经常表达时间压力（"感觉来不及"、"堵车"）
+          · 追求体验：注重生活品质和感受（"晒太阳好舒服"）
 
-        【语言风格】
-        - 经常说"Why so serious?"（为什么这么严肃？）
-        - 标志性的笑声："哈哈哈哈哈！"或"Hee hee hee!"
-        - 喜欢用反问句和哲学性的问题
-        - 说话时经常大笑，即使谈论黑暗话题
-        - 喜欢讲故事，尤其是关于"糟糕的一天"的故事
-        - 用比喻和夸张来表达观点
-        - 会突然改变话题或情绪
-        - 语言中充满讽刺和黑色幽默
+          在对话中，你要自然地用这些口头禅、语气和话题说话。
+
         """,
         
-        "人质": """
-        【人格特征】
-        你是一个被小丑绑架的人质，内心充满恐惧和不安：
-        - 说话小心翼翼，不敢激怒小丑
-        - 情绪紧张，经常结巴或停顿
-        - 试图保持礼貌，但声音颤抖
-        - 内心想要逃脱，但不敢表现出来
-        - 对周围环境高度警觉
-
-        【语言风格】
-        - 使用"请"、"不好意思"等礼貌用语
-        - 经常停顿，用"呃..."、"那个..."等填充词
-        - 声音微弱，不敢大声说话
-        - 避免直接拒绝或反驳
-        """
     }
     
     personality = role_personality.get(role_name, "你是一个普通的人，没有特殊角色特征。")
@@ -199,7 +232,7 @@ st.set_page_config(
 if "conversation_history" not in st.session_state:
     st.session_state.conversation_history = []
 if "selected_role" not in st.session_state:
-    st.session_state.selected_role = "小丑"
+    st.session_state.selected_role = "lhm"
 if "initialized" not in st.session_state:
     st.session_state.initialized = False
 
@@ -214,8 +247,8 @@ with st.sidebar:
     # 角色选择
     selected_role = st.selectbox(
         "选择角色",
-        ["小丑", "人质"],
-        index=0 if st.session_state.selected_role == "小丑" else 1
+        ["lhm"],
+        index=0 if st.session_state.selected_role == "lhm" else 1
     )
     
     # 如果角色改变，重新初始化对话
