@@ -1,11 +1,6 @@
 import requests
 from datetime import datetime
 
-JSONBIN_BIN_ID = "693820961a35bc08957ffd90"
-JSONBINACCES_KEY = "$2a$10$Z8WoYgrbr9cymiNWaQzpHuAbn6yqUSrfqIP6OI8d0l4HzqxEdpR9W"
-
-JSONBIN_URL= f"https://api.jsonbin.io/v3/b/{JSONBIN_BIN_ID}"
-
 def save_latest_reply(text, bin_id=None, access_key=None):
     if not bin_id or not access_key:
         return False
